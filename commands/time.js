@@ -5,6 +5,6 @@ module.exports = {
         .setName('time')
         .setDescription("Get the bot's current time"),
     async execute(interaction) {
-        await interaction.reply(`Time is ${Date.now()}.`);
+        await interaction.reply(`Time is ${new Date()}.`);
     },
 };
