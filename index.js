@@ -45,7 +45,9 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
-let job1 = new cron.CronJob('00 00 08 * * 1-2', () => {
+const tooLate = "Uh oh... it is too late to sign via Bluetooth now."
+
+let jobMorningStart = new cron.CronJob('00 00 08 * * 1-2', () => {
     client.guilds.cache.forEach(guild => {
         try {
             guild.systemChannel.send('Good morning ! It is time to sign! :smile:')
@@ -55,7 +57,17 @@ let job1 = new cron.CronJob('00 00 08 * * 1-2', () => {
     })
 });
 
-let job2 = new cron.CronJob('00 40 12 * * 1-2', () => {
+let jobMorningEnd = new cron.CronJob('00 00 08 * * 1-2', () => {
+    client.guilds.cache.forEach(guild => {
+        try {
+            guild.systemChannel.send(tooLate);
+        } catch(err) {
+            console.log('Failed to send a message on guild ' + guild);
+        }
+    })
+});
+
+let jobAfternoonStart = new cron.CronJob('00 40 12 * * 1-2', () => {
     client.guilds.cache.forEach(guild => {
         try {
             guild.systemChannel.send('Good afternoon! It is time to sign! :smile:')
@@ -65,7 +77,17 @@ let job2 = new cron.CronJob('00 40 12 * * 1-2', () => {
     })
 });
 
-let job3 = new cron.CronJob('00 10 16 * * 1-2', () => {
+let jobAfternoonEnd = new cron.CronJob('00 40 12 * * 1-2', () => {
+    client.guilds.cache.forEach(guild => {
+        try {
+            guild.systemChannel.send(tooLate);
+        } catch(err) {
+            console.log('Failed to send a message on guild ' + guild);
+        }
+    })
+});
+
+let jobEveningStart = new cron.CronJob('00 10 16 * * 1-2', () => {
     client.guilds.cache.forEach(guild => {
         try {
             guild.systemChannel.send('It is time to use the Microsoft Teams form. Have a good evening!')
@@ -75,9 +97,22 @@ let job3 = new cron.CronJob('00 10 16 * * 1-2', () => {
     })
 });
 
-job1.start()
-job2.start()
-job3.start()
+let jobEveningEnd = new cron.CronJob('00 10 16 * * 1-2', () => {
+    client.guilds.cache.forEach(guild => {
+        try {
+            guild.systemChannel.send('Hey, did you use the Microsoft Teams form?')
+        } catch(err) {
+            console.log('Failed to send a message on guild ' + guild);
+        }
+    })
+});
 
+jobMorningStart.start()
+jobAfternoonStart.start()
+jobEveningStart.start()
+
+jobMorningEnd.start();
+jobAfternoonEnd.start();
+jobEveningEnd.start();
 
 client.login(process.env.SWS_DISCORD_TOKEN);
