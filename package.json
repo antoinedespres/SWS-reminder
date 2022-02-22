@@ -1,0 +1,34 @@
+{
+  "name": "sws-reminder",
+  "engines": {
+    "node": "16.x"
+  },
+  "version": "1.0.0",
+  "description": "Discord bot created using Discord.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "deploy": "node deploy-commands.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antoinedespres/SWS-reminder.git"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "Antoine Després",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antoinedespres/SWS-reminder/issues"
+  },
+  "homepage": "https://github.com/antoinedespres/SWS-reminder#readme",
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "cron": "^1.8.2",
+    "discord-api-types": "^0.27.2",
+    "discord.js": "^13.6.0"
+  }
+}
