@@ -57,7 +57,7 @@ let jobMorningStart = new cron.CronJob('00 00 08 * * 1-2', () => {
     })
 });
 
-let jobMorningEnd = new cron.CronJob('00 00 08 * * 1-2', () => {
+let jobMorningEnd = new cron.CronJob('00 15 08 * * 1-2', () => {
     client.guilds.cache.forEach(guild => {
         try {
             guild.systemChannel.send(tooLate);
@@ -77,7 +77,7 @@ let jobAfternoonStart = new cron.CronJob('00 40 12 * * 1-2', () => {
     })
 });
 
-let jobAfternoonEnd = new cron.CronJob('00 40 12 * * 1-2', () => {
+let jobAfternoonEnd = new cron.CronJob('00 55 12 * * 1-2', () => {
     client.guilds.cache.forEach(guild => {
         try {
             guild.systemChannel.send(tooLate);
@@ -97,7 +97,7 @@ let jobEveningStart = new cron.CronJob('00 10 16 * * 1-2', () => {
     })
 });
 
-let jobEveningEnd = new cron.CronJob('00 10 16 * * 1-2', () => {
+let jobEveningEnd = new cron.CronJob('00 10 17* * 1-2', () => {
     client.guilds.cache.forEach(guild => {
         try {
             guild.systemChannel.send('Hey, did you use the Microsoft Teams form?')
