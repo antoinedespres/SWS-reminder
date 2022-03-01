@@ -97,7 +97,7 @@ let jobEveningStart = new cron.CronJob('00 10 16 * * 1-2', () => {
     })
 });
 
-let jobEveningEnd = new cron.CronJob('00 10 17* * 1-2', () => {
+let jobEveningEnd = new cron.CronJob('00 10 17 * * 1-2', () => {
     client.guilds.cache.forEach(guild => {
         try {
             guild.systemChannel.send('Hey, did you use the Microsoft Teams form?')
