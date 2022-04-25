@@ -109,10 +109,10 @@ let jobEveningEnd = new cron.CronJob('00 10 17 * * 1-2', () => {
 
 jobMorningStart.start()
 jobAfternoonStart.start()
-jobEveningStart.start()
+//jobEveningStart.start()
 
 jobMorningEnd.start();
 jobAfternoonEnd.start();
-jobEveningEnd.start();
+//jobEveningEnd.start();
 
 client.login(process.env.SWS_DISCORD_TOKEN);
